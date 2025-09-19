@@ -5,21 +5,6 @@ import datetime
 
 product_list = []
 
-connection = sqlite3.connect( "data_base.db" )
-connection.cursor().execute(
-                        """
-                            CRAETE table products
-                            (
-                            id           integer primary key autoincrement,
-                            title        text,
-                            brand        text,
-                            price        text,
-                            expire_date  text
-                        );
-                        """ 
-                        )
-connection.commit()
-connection.close()
 
 window = Tk()
 window.title( "shop" )
@@ -29,14 +14,14 @@ window.geometry ( "600x500" )
 # Label( window , text = "product id" ).place( x = 25 , y = 30 )
 # Combobox( window , values = [ "White" , "Black" , "Red" ] , width = 17 , state = "readonly" ).place( x = 120 , y = 30 )
 
-persent_time = datetime.datetime.now()
+persent_time = str( datetime.datetime.now() )
 
 connection = sqlite3.connect( "data_base.db" )
 connection.cursor().execute( 
                     f"""
-                            SELECT * FROM 
-                            INTO {product_list} 
-                            WHERE expire_date > {persent_time}  
+                            SELECT * 
+                            FROM product 
+                            WHERE expire_date > "{persent_time} " 
                     """ 
                     )
 connection.commit()
