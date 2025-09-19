@@ -14,20 +14,23 @@ Combobox( window , values = [ "White" , "Black" , "Red" ] , width = 17 , state =
 
 title = StringVar()
 Label( window , text = "product name" ).place( x = 25 , y = 70 )
-Combobox( window , values = product_list ).place( x = 120 , y = 70 )
+Entry( window , textvariable = title , state = "readonly" ).place( x = 120 , y = 70 )
 
 
 brand = StringVar()
-Label( window , text = "Car color" ).place( x = 25 , y = 110 )
-Combobox( window , values = [ "White" , "Black" , "Red" ] , width = 17 , state = "readonly" ).place( x = 100 , y = 110 )
+Label( window , text = "product brand" ).place( x = 25 , y = 110 )
+Entry( window , textvariable = brand , width = 20 , state = "readonly" ).place( x = 120 , y = 110 )
 
 
 price = StringVar()
-Label( window , text = "Car plate" ).place( x = 25 , y = 150 )
-Entry( window , textvariable = price ).place( x = 100 , y = 150 )
+Label( window , text = "product price" ).place( x = 25 , y = 150 )
+Entry( window , textvariable = price , state = "readonly" ).place( x = 120 , y = 150 )
+
+Label( window , text = "Expire date products" ).place( x = 340 , y = 30 )
+Combobox( window , values = [] , width = 20 , state = "readonly" ).place( x = 340 , y = 70 )
 
 
-Button( window , text = "show total number" , width = 15 , command = "" ).place( x = 25 , y = 200 )
+Button( window , text = "show total number" , width = 20 , command = "" ).place( x = 25 , y = 200 )
 
 
 window.mainloop()
