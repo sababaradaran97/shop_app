@@ -26,8 +26,8 @@ price = StringVar()
 Label( window , text = "product price" ).place( x = 25 , y = 150 )
 Entry( window , textvariable = price , state = "readonly" ).place( x = 120 , y = 150 )
 
-Label( window , text = "Expire date products" ).place( x = 340 , y = 30 )
-Combobox( window , values = [] , width = 20 , state = "readonly" ).place( x = 340 , y = 70 )
+Label( window , text = "Expire date products" ).place( x = 400 , y = 30 )
+Combobox( window , values = [] , width = 15 , state = "readonly" ).place( x = 400 , y = 70 )
 
 
 Button( window , text = "show total number" , width = 20 , command = "" ).place( x = 25 , y = 200 )

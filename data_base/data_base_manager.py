@@ -1,4 +1,5 @@
 import sqlite3 
+import datetime
 
 def craete_table ():
     try:
@@ -35,3 +36,17 @@ def count () :
         connection.close()
         return resualt
 
+def check_date () :
+     
+    persent_time = str( datetime.datetime.now() )
+
+    connection = sqlite3.connect( "data_base.db" )
+    connection.cursor().execute( 
+                        f"""
+                                SELECT * 
+                                FROM product 
+                                WHERE expire_date > "{persent_time} " 
+                        """ 
+                        )
+    connection.commit()
+    connection.close()
