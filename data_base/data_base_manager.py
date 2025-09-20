@@ -3,7 +3,7 @@ import datetime
 
 def craete_table ():
     try:
-        connection = sqlite3.connect( "data_base.db" )
+        connection = sqlite3.connect( "data_base/data_base.db" )
         connection.cursor().execute(
                             """
                             CREATE TABLE "product" (
@@ -29,12 +29,13 @@ def craete_table ():
     # connection.close()
 
 def count () :
-        resualt = 0
-        connection = sqlite3.connect( "data_base.db" )
-        connection.cursor().execute ( f""" SELECT MAX(id) FROM product AND {resualt} = MAX(id) """ ) 
+
+        connection = sqlite3.connect( "data_base/data_base.db" )
+        result = connection.cursor().execute( """ SELECT COUNT(id) AS count FROM product """ ).fetchall()
         connection.commit()
         connection.close()
-        return resualt
+        total_number = result[ 0 ][ 0 ]
+        return total_number 
 
 def check_date () :
      
