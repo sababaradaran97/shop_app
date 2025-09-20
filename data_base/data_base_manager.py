@@ -22,32 +22,28 @@ def craete_table ():
     except:
         pass
 
-# def choose_id () :
-    # connection = sqlite3.connect( "data_base.db" )
-    # connection.cursor().execute( """ SELECT id FROM products """ )
-    # connection.commit()
-    # connection.close()
+def choose_title () :
+    connection = sqlite3.connect( "data_base.db" )
+    result = connection.cursor().execute( """ SELECT title FROM product """ ).fetchall()
+    connection.commit()
+    connection.close()
+    return result
 
-def count () :
+def count_bottom () :
 
         connection = sqlite3.connect( "data_base/data_base.db" )
         result = connection.cursor().execute( """ SELECT COUNT(id) AS count FROM product """ ).fetchall()
         connection.commit()
         connection.close()
         total_number = result[ 0 ][ 0 ]
-        return total_number 
+        return ( total_number )
 
 def check_date () :
      
     persent_time = str( datetime.datetime.now() )
 
     connection = sqlite3.connect( "data_base.db" )
-    connection.cursor().execute( 
-                        f"""
-                                SELECT * 
-                                FROM product 
-                                WHERE expire_date > "{persent_time} " 
-                        """ 
-                        )
+    result = connection.cursor().execute( f""" SELECT * FROM product WHERE expire_date > "{persent_time}" """ ).fetchall()
     connection.commit()
     connection.close()
+    return result
